@@ -18,6 +18,10 @@ export class AuthService {
       })
     );
   }
+  logout() {
+    this._auth = undefined;
+    localStorage.removeItem('token');
+  }
 
   get auth() {
     return { ...this._auth };
