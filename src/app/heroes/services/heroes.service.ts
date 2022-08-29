@@ -17,4 +17,14 @@ export class HeroesService {
   getSugerencias(termino: string){
     return this.http.get<Heroe[]>("http://localhost:3000/heroes?q="+ termino + "&_limit=6" );
   }
+  guardarHeroe(heroe: Heroe){
+    return this.http.post<Heroe>("http://localhost:3000/heroes", heroe);
+  }
+  actualizarHeroe(heroe: Heroe){
+    return this.http.put<Heroe>("http://localhost:3000/heroes/" + heroe.id, heroe);
+  }
+  borrarHeroe(id: string){
+    return this.http.delete<any>("http://localhost:3000/heroes/" + id);
+  }
 }
+
